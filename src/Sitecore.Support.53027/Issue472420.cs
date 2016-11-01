@@ -11,6 +11,7 @@ using Sitecore.Pipelines;
 using Sitecore.Pipelines.Logout;
 using Sitecore.Sites;
 using Sitecore.Support.Controllers;
+using Sitecore.Text;
 using Sitecore.Web;
 using Sitecore.Web.Pipelines.InitializeSpeakLayout;
 
@@ -88,8 +89,10 @@ namespace Sitecore.Controllers
                 Assert.IsNotNull(site, $"Configuration for '{"shell"}' site not found.");
                 using (new SiteContextSwitcher(site))
                 {
+                    var args = new LogoutArgs();
+                    args.RedirectUrl = new UrlString(Context.Site.LoginPage);
                     ClientHost.Pipelines.Run("speak.logout", new LogoutArgs());
-                    ((dynamic)result.Result).Redirect = Context.Site.LoginPage;
+                    ((dynamic)result.Result).Redirect = args.RedirectUrl.Path;
                     ((dynamic)result.Result).Success = true;
                 }
                 Log.Audit($"Logout: {name}.", this);

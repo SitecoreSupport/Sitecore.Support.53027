@@ -67,10 +67,12 @@
     <Content Include="App_Config\Include\zzz\Sitecore.Support.53027.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="sitecore\shell\client\Business Component Library\Layouts\Renderings\Authentications\AccountInformation\AccountInformation.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
